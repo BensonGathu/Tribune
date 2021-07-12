@@ -1,0 +1,51 @@
+{%extends "registration/base.html"%}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+<div class="body">
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="login-form text-center">
+                    <form class="userr" action="" method="post">
+                        {% csrf_token %}
+                        
+                        <div class="text-center mb-4"> 
+                            <legend>
+                                <h3><strong>Login</strong></h3>
+                            </legend>
+                            <hr>
+                            
+                            <div class="form-group">
+                                <input type="text" name="username" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Password">
+                            </div>
+                            <!-- <div class="form-group">
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label id="w" class="custom-control-label" for="customCheck">Remember Me</label>
+                                </div>
+                            </div> -->
+                            <button type="submit" id="btn" class="btn btn-success btn-block">Login</button>
+                    </form>
+                    <br>
+                    <div id="p" class="text-center">
+                        <a class="small" href="#">Forgot Password?</a>
+                    </div>
+                    <!-- <div id="q" class="text-center">
+                        <small class="text-muted">Need an account? Contact human resource for registration and
+                            credential assignment. </small>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'all-news/base.html'%}
+{% load bootstrap3 %}
+{% block content%}
+{{block.super}}
+<div class="container">
+    <!-- looping through the news -->
+    {% for news_item in news %}
+    <div class="row">
+        <!-- displaying news articles -->
+        <div class="col-xs-6 col-sm-6 col-lg-6">
+            <h2 class="text-center"><b>{{news_item.title}}</b></h2>
+            <p class="text-center">{{news_item.post}}</p>
+        </div>
+         <!--Display news Article images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{news_item.article_image.url}}" class="img-responsive" alt="Image"  height="10" >
+      </div>
+    </div>
+    {% empty%}
+
+    <div class="row">
+        <h2 class="text-center">There are No News Items</h2>
+    </div>
+    {%endfor%}
+    <div class="container-fluid">
+        <form action="{%url 'newsToday'%}" method="post">
+            {%csrf_token%}
+            {% for field in letterform %}
+            {% bootstrap_field field %}
+            {% endfor %}
+            <input type="submit" value="Subscribe">
+        </form>
+    </div>
+    
+</div>
+
+{%endblock%}
